@@ -64,10 +64,7 @@ class Random(object):
 		return val
 
 
-# N = int(input())
-# rand_num = list()
+rand_num = list(map(int, input().split(' ')))
 
-PNRG = Random()
-
-for i in range(10):
-	print(PNRG.nextInt(1000))
+for i in range(281474976710656):
+	PRNG_temp = Random(i)
