@@ -64,7 +64,33 @@ class Random(object):
 		return val
 
 
+# To create a test list
+# test = Random(5)
+# test_list = [test.nextInt(1000) for i in range(10)]
+# print(test_list)
+
 rand_num = list(map(int, input().split(' ')))
 
-for i in range(281474976710656):
-	PRNG_temp = Random(i)
+PRNG_found = False
+seed_test = 1
+
+while not PRNG_found:
+	PRNG_temp = Random(seed_test)
+	numbers_correct = 0
+
+	if seed_test % 1000000 == 0:
+		print(seed_test//1000000)
+
+	for i in range(0, 10):
+		temp = PRNG_temp.nextInt(1000)
+		if temp == rand_num[i]:
+			numbers_correct += 1
+		else:
+			seed_test += 1
+			break
+
+	if numbers_correct == 10:
+		PRNG_found = True
+		break
+
+print("Seed is ", seed_test)
