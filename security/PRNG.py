@@ -72,21 +72,18 @@ class Random(object):
 rand_num = list(map(int, input().split(' ')))
 
 PRNG_found = False
-seed_test = 1
+seed_test = int(time.time() * 1000)
 
 while not PRNG_found:
 	PRNG_temp = Random(seed_test)
 	numbers_correct = 0
-
-	if seed_test % 1000000 == 0:
-		print(seed_test//1000000)
 
 	for i in range(0, 10):
 		temp = PRNG_temp.nextInt(1000)
 		if temp == rand_num[i]:
 			numbers_correct += 1
 		else:
-			seed_test += 1
+			seed_test -= 1
 			break
 
 	if numbers_correct == 10:
