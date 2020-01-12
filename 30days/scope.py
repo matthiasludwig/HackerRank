@@ -4,7 +4,9 @@ class Difference:
 
 	# Add your code here
     def computeDifference(self):
-        print(self.__elements)
+        length = len(self.__elements)
+        self.__elements.sort()
+        self.maximumDifference = abs(self.__elements[0] - self.__elements[length - 1])
 
 # End of Difference class
 
