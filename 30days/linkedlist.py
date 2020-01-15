@@ -11,22 +11,14 @@ class Solution:
 
     def insert(self,head,data): 
         #Complete this method
-        last = head
-
-        while last:
-            if last.next != None:
-                last = last.next
-            else:
-                break
-
-        T = Node(data)
-        if last != None:
-            last.next = T
-            #print(head)
-            return head
+        if head == None:
+            return Node(data)
+        elif head.next == None:
+            head.next = Node(data)
         else:
-            #print(T.data)
-            return T
+            self.insert(head.next, data)
+
+        return head
 
 mylist= Solution()
 T=int(input())
