@@ -9,25 +9,29 @@ class Solution:
             print(current.data,end=' ')
             current = current.next
 
-    def insert(self,head,data):
-        T = Node(data)
+    def insert(self,head,data): 
+        #Complete this method
+        last = head
 
-        if head == None:
-            return T
-        else:
-            last = head
-            
-            while last.next:
+        while last:
+            if last.next != None:
                 last = last.next
+            else:
+                break
 
-            T.next = last
-
+        T = Node(data)
+        if last != None:
+            last.next = T
+            #print(head)
             return head
+        else:
+            #print(T.data)
+            return T
 
 mylist= Solution()
 T=int(input())
 head=None
 for i in range(T):
     data=int(input())
-    head=mylist.insert(head,data)
+    head=mylist.insert(head,data)    
 mylist.display(head); 	  
