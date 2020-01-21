@@ -3,6 +3,9 @@ class Node:
         self.right=self.left=None
         self.data = data
 class Solution:
+    def __init__(self):
+        self.height = 0
+    
     def insert(self,root,data):
         if root==None:
             return Node(data)
@@ -17,9 +20,11 @@ class Solution:
 
     def getHeight(self,root):
         #Write your code here
+        self.height += 1
         if (root.right):
             self.getHeight(root.right)
-            return root.data
+        
+        return self.height
 
 T=int(input())
 myTree=Solution()
