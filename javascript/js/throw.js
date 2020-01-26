@@ -33,10 +33,10 @@ function isPositive(a) {
         return "YES";
     }
     else if (a === 0) {
-        throw "Zero Error";
+        throw new Error('Zero Error');
     }
     else if (a < 0) {
-        throw "Negative Error";
+        throw new Error('Negative Error');
     }
 }
 
